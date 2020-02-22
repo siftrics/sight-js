@@ -1,0 +1,30 @@
+{
+  "name": "sight",
+  "version": "1.0.0",
+  "description": "Official client for Siftrics' Sight API, which is a text recognition service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siftrics/sight-js.git"
+  },
+  "keywords": [
+    "ocr",
+    "text",
+    "recognition",
+    "optical",
+    "character",
+    "recognition",
+    "pdf",
+    "document",
+    "image"
+  ],
+  "author": "Siftrics Founder",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/siftrics/sight-js/issues"
+  },
+  "homepage": "https://github.com/siftrics/sight-js#readme"
+}
