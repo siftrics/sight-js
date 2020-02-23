@@ -1,5 +1,5 @@
 {
-  "name": "sight",
+  "name": "sight-api",
   "version": "1.0.0",
   "description": "Official client for Siftrics' Sight API, which is a text recognition service",
   "main": "index.js",
@@ -26,5 +26,5 @@
   "bugs": {
     "url": "https://github.com/siftrics/sight-js/issues"
   },
-  "homepage": "https://github.com/siftrics/sight-js#readme"
+  "homepage": "https://github.com/siftrics/sight-js"
 }

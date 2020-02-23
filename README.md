@@ -5,7 +5,7 @@ This repository contains the official [Sight API](https://siftrics.com/) Node.js
 1. Install the node module.
 
 ```
-npm install siftrics/sight-js
+npm install sight-api
 ```
 
 
@@ -13,7 +13,7 @@ npm install siftrics/sight-js
 3. Create a client, passing your API key into the constructor, and recognize text:
 
 ```
-const sight = require('sight-js');
+const sight = require('sight-api');
 
 const s = new sight.Client('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx');
 
