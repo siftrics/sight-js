@@ -1,4 +1,4 @@
-This repository contains the official [Sight API](https://siftrics.com/) Node.js client.
+This repository contains the official [Sight API](https://siftrics.com/) Node.js client. The Sight API is a text recognition service.
 
 # Quickstart
 
