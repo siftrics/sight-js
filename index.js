@@ -137,9 +137,9 @@ class Client {
         });
     }
 
-    recognize(files) {
+    recognize(files, words = false) {
         return new Promise((resolve, reject) => {
-            let payload = { files: [] }
+            let payload = { files: [], makeSentences: !words }
             for (let k in files) {
                 const file = files[k];
                 let mimeType = '';

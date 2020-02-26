@@ -65,6 +65,12 @@ s.recognize(['invoice_1.pdf', 'my_receipt.png'])
       ]
 ```
 
+## Word-Level Bounding Boxes
+
+`client.recognize([ ... ], words=False)` has a default parameter `words`, which defaults to `false`, but if it's set to `true` then word-level bounding boxes are returned instead of sentence-level bounding boxes.
+
+## Official API Documentation
+
 Here is the [official documentation for the Sight API](https://siftrics.com/docs/sight.html).
 
 # Apache V2 License
