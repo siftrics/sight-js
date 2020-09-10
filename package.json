@@ -1,6 +1,6 @@
 {
   "name": "sight-api",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Official client for Siftrics' Sight API, which is a text recognition service",
   "main": "index.js",
   "scripts": {

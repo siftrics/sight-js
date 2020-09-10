@@ -29,18 +29,16 @@ s.recognize(['invoice_1.pdf', 'my_receipt.png'])
 `pages` looks like this:
 
 ```
-{
-      "Pages": [
-        {
-          "Error": "",
-          "FileIndex": 0,
-          "PageNumber": 1,
-          "NumberOfPagesInFile": 3,
-          "RecognizedText": [ ... ]
-        },
-        ...
-      ]
-}
+[
+  {
+    "Error": "",
+    "FileIndex": 0,
+    "PageNumber": 1,
+    "NumberOfPagesInFile": 3,
+    "RecognizedText": [ ... ]
+  },
+  ...
+]
 ```
 
 `FileIndex` is the index of this file in the original request's "files" array.
@@ -48,26 +46,26 @@ s.recognize(['invoice_1.pdf', 'my_receipt.png'])
 `RecognizedText` looks like this:
 
 ```
-    "RecognizedText": [
-        {
-          "Text": "Invoice",
-          "Confidence": 0.22863210084975458
-          "TopLeftX": 395,
-          "TopLeftY": 35,
-          "TopRightX": 449,
-          "TopRightY": 35,
-          "BottomLeftX": 395,
-          "BottomLeftY": 47,
-          "BottomRightX": 449,
-          "BottomRightY": 47,
-        },
-        ...
-      ]
+"RecognizedText": [
+  {
+    "Text": "Invoice",
+    "Confidence": 0.22863210084975458
+    "TopLeftX": 395,
+    "TopLeftY": 35,
+    "TopRightX": 449,
+    "TopRightY": 35,
+    "BottomLeftX": 395,
+    "BottomLeftY": 47,
+    "BottomRightX": 449,
+    "BottomRightY": 47
+  },
+  ...
+]
 ```
 
 ## Word-Level Bounding Boxes
 
-`client.recognize([ ... ], words=False)` has a default parameter `words`, which defaults to `false`, but if it's set to `true` then word-level bounding boxes are returned instead of sentence-level bounding boxes.
+`client.recognize([ ... ], words=False)` has a default parameter, `words`, which defaults to `false`, but if it's set to `true` then word-level bounding boxes are returned instead of sentence-level bounding boxes.
 
 ## Official API Documentation
 

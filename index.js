@@ -39,15 +39,24 @@ class Client {
                     headers: { 'Authorization': 'Basic ' + this.apiKey }
                 }
                 const req = https.request(options, res => {
-                    if (res.statusCode != 200) {
-                        reject(new Error('non-200 response: ' + res.statusCode))
-                    }
                     let chunks = [];
                     res.on('data', chunk => {
                         chunks.push(chunk);
                     }).on('end', () => {
                         const buf = Buffer.concat(chunks);
-                        const json = JSON.parse(buf);
+                        if (res.statusCode != 200) {
+                            reject(new Error('non-200 response; ' +
+                                             'status code: ' + res.statusCode +
+                                             ' body: ' + buf));
+                            return;
+                        }
+                        let json;
+                        try {
+                            json = JSON.parse(buf);
+                        } catch (error) {
+                            reject(error);
+                            return;
+                        }
                         Array.prototype.push.apply(pages, json.Pages);
                         if (json.Pages.length == 0) {
                             return;
@@ -104,16 +113,24 @@ class Client {
                 }
             }
             const req = https.request(options, res => {
-                if (res.statusCode != 200) {
-                    reject(new Error('non-200 response: ' + res.statusCode))
-                }
-
                 let chunks = [];
                 res.on('data', chunk => {
                     chunks.push(chunk);
                 }).on('end', () => {
                     const buf = Buffer.concat(chunks);
-                    const json = JSON.parse(buf);
+                    if (res.statusCode != 200) {
+                        reject(new Error('non-200 response; ' +
+                                         'status code: ' + res.statusCode +
+                                         ' body: ' + buf));
+                        return;
+                    }
+                    let json;
+                    try {
+                        json = JSON.parse(buf);
+                    } catch (error) {
+                        reject(error);
+                        return;
+                    }
                     if (json.hasOwnProperty('PollingURL')) {
                         this.doPoll(json.PollingURL, payload.files.length)
                             .then(pages => { resolve(pages) })
