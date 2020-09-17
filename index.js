@@ -142,7 +142,7 @@ class Client {
                         FileIndex: 0,
                         PageNumber: 1,
                         NumberOfPagesInFile: 1,
-                        RecognizedText: json
+                        ...json
                     }]);
                 });
             })
@@ -154,23 +154,29 @@ class Client {
         });
     }
 
-    recognize(files, words = false) {
+    recognize(files, words = false, autoRotate = false, exifRotate = false) {
         return new Promise((resolve, reject) => {
-            let payload = { files: [], makeSentences: !words }
+            let payload = {
+                files: [],
+                makeSentences: !words,
+                doAutoRotate: autoRotate,
+                doExifRotate: exifRotate
+            }
             for (let k in files) {
                 const file = files[k];
+                const fn = file.toLowerCase();
                 let mimeType = '';
-                if (file.endsWith('.pdf')) {
+                if (fn.endsWith('.pdf')) {
                     mimeType = 'application/pdf'
-                } else if (file.endsWith('.bmp')) {
+                } else if (fn.endsWith('.bmp')) {
                     mimeType = 'image/bmp'
-                } else if (file.endsWith('.gif')) {
+                } else if (fn.endsWith('.gif')) {
                     mimeType = 'image/gif'
-                } else if (file.endsWith('.jpeg')) {
+                } else if (fn.endsWith('.jpeg')) {
                     mimeType = 'image/jpeg'
-                } else if (file.endsWith('.jpg')) {
+                } else if (fn.endsWith('.jpg')) {
                     mimeType = 'image/jpg'
-                } else if (file.endsWith('.png')) {
+                } else if (fn.endsWith('.png')) {
                     mimeType = 'image/png'
                 } else {
                     reject(new Error('unrecognized file extension. must be pdf, bmp, gif, jpeg, jpg, or png'));
